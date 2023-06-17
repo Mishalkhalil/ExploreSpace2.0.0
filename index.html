@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Mousemove Effect | Change Background Position On Mousemove</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Common styles */
+    .object {
+      position: relative;
+    }
+
+    .pic1,
+    .pic2,
+    .pic3,
+    .pic4,
+    .pic5,
+    .pic6,
+    .pic7,
+    .pic8,
+    .pic9 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* Mobile styles */
+    @media only screen and (max-width: 767px) {
+      .objectname span {
+        display: block;
+      }
+
+      .objectname,
+      p {
+        font-size: 18px;
+      }
+    }
+
+    /* Tablet and desktop styles */
+    @media only screen and (min-width: 768px) {
+      .objectname span {
+        display: inline;
+      }
+
+      .objectname,
+      p {
+        font-size: 24px;
+      }
+    }
+
+    /* Desktop styles */
+    @media only screen and (min-width: 992px) {
+      .objectname,
+      p {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2 class="objectname" data-value="3">Welcome to Our <br><span>solar system</span></h2>
+   <a href="sun.html" class="pic8">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/921/377/original/cute-sun-cartoon-character-png.png" class="object" data-value="8" alt="">
+    <p>Sun</p>
+  </a>
+  <a href="mercury.html" class="pic5">
+    <img src="https://cdn-icons-png.flaticon.com/512/6109/6109165.png" class="object" data-value="-4" alt="">
+    <p>Mercury</p>
+  </a>
+   <a href="venus.html" class="pic2">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/800/623/original/mercury-planet-cartoon-icon-png.png" class="object" data-value="6" alt="">
+    <p>Venus</p>
+  </a>
+  <a href="earth.html" class="pic1"> 
+    <img src="f1.webp" class="object" data-value="-2" alt="">
+    <p>Earth</p>
+  </a>
+  <a href="mars.html" class="pic9">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/802/709/original/mars-planet-cartoon-icon-png.png" class="object" data-value="5" alt="">
+    <p>Mars</p>
+  </a>
+  <a href="juptier.html" class="pic3">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/931/537/original/cartoon-venus-icon-png.png" class="object" data-value="4" alt="">
+    <p>Jupiter</p>
+  </a>
+  <a href="saturn.html" class="pic4">
+    <img src="https://static.vecteezy.com/system/resources/previews/012/794/811/original/3d-planet-jupiter-rendered-object-illustration-png.png" class="object" data-value="-6" alt="">
+    <p>Saturn</p>
+  </a>
+  <a href="urno.html" class="pic6">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/802/708/original/planet-neptune-cartoon-icon-png.png" class="object" data-value="-9" alt="">
+    <p>Uranus</p>
+  </a>
+  <a href="neptune.html" class="pic7">
+    <img src="https://static.vecteezy.com/system/resources/previews/018/803/292/original/planet-uranus-cartoon-icon-png.png" class="object" data-value="-5" alt="">
+    <p>Neptune</p>
+  </a>
+
+  <script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+    function parallax(e) {
+      document.querySelectorAll(".object").forEach(function(move) {
+        var moving_value = move.getAttribute("data-value");
+        var x = (e.clientX * moving_value) / 250;
+        var y = (e.clientY * moving_value) / 250;
+        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+      });
+    }
+  </script>
+</body>
+</html>
